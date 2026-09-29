@@ -1,5 +1,5 @@
 {
-  "name": "PackageStructure.EventBus",
+  "name": "EventSystem",
   "rootNamespace": "EventSystem",
   "references": ["UniTask", "VContainer"],
   "includePlatforms": [],

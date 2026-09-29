@@ -1,0 +1,9 @@
+{
+  "name": "EventSystem.Tests",
+  "rootNamespace": "EventSystem.Tests",
+  "references": ["EventSystem", "UniTask", "VContainer"],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "includePlatforms": ["Editor"],
+  "defineConstraints": ["UNITY_INCLUDE_TESTS"],
+  "autoReferenced": false
+}

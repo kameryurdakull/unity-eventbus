@@ -39,8 +39,7 @@ namespace PackageStructure.Editor
 
         internal static bool IsEventBusInstalled()
         {
-            return File.Exists(Path.Combine(DependencyInstallCatalog.EventBusDirectory, "EventBus.cs"))
-                && File.Exists(Path.Combine(DependencyInstallCatalog.EventBusDirectory, "IEventBus.cs"));
+            return IsPackageInstalled(DependencyInstallCatalog.EventBusName);
         }
 
         internal static void InstallPackage(string packageName, string packageUrl)
@@ -79,22 +78,7 @@ namespace PackageStructure.Editor
                 return;
             }
 
-            var interfacePath = Path.Combine(DependencyInstallCatalog.EventBusDirectory, "IEventBus.cs");
-            var implementationPath = Path.Combine(DependencyInstallCatalog.EventBusDirectory, "EventBus.cs");
-            var assemblyPath = Path.Combine(DependencyInstallCatalog.EventBusDirectory, "EventSystem.asmdef");
-
-            if (File.Exists(interfacePath) || File.Exists(implementationPath) || File.Exists(assemblyPath))
-            {
-                Debug.LogError("Event Bus target files already exist. Resolve them before installing.");
-                return;
-            }
-
-            Directory.CreateDirectory(DependencyInstallCatalog.EventBusDirectory);
-            CopyTemplate("IEventBus.cs.txt", "IEventBus.cs");
-            CopyTemplate("EventBus.cs.txt", "EventBus.cs");
-            CopyTemplate("EventSystem.asmdef.txt", "EventSystem.asmdef");
-            AssetDatabase.Refresh();
-            Debug.Log("Event Bus installed from the included project source.");
+            InstallPackage(DependencyInstallCatalog.EventBusName, DependencyInstallCatalog.EventBusUrl);
         }
 
         private static void PollPackageRequest()
@@ -158,11 +142,5 @@ namespace PackageStructure.Editor
             }
         }
 
-        private static void CopyTemplate(string sourceName, string destinationName)
-        {
-            var sourcePath = Path.Combine(DependencyInstallCatalog.TemplateDirectory, sourceName);
-            var destinationPath = Path.Combine(DependencyInstallCatalog.EventBusDirectory, destinationName);
-            File.Copy(sourcePath, destinationPath, false);
-        }
     }
 }

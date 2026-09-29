@@ -16,7 +16,7 @@ namespace PackageStructure.Editor
         private void OnGUI()
         {
             EditorGUILayout.LabelField("Online dependency installer", EditorStyles.boldLabel);
-            EditorGUILayout.HelpBox("Install each dependency manually. Git packages are fetched from their official repositories; DOTween is downloaded from Demigiant. Event Bus uses this project's included source.", MessageType.Info);
+            EditorGUILayout.HelpBox("Install each dependency manually. Git packages are fetched from their repositories; DOTween is downloaded from Demigiant.", MessageType.Info);
 
             DrawPackageRow("Unity MCP", DependencyInstallCatalog.UnityMcpName, DependencyInstallCatalog.UnityMcpUrl);
             DrawPackageRow("UniTask", DependencyInstallCatalog.UniTaskName, DependencyInstallCatalog.UniTaskUrl);

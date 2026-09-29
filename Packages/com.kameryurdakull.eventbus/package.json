@@ -1,0 +1,17 @@
+{
+  "name": "com.kameryurdakull.eventbus",
+  "version": "1.0.0",
+  "displayName": "Event Bus",
+  "description": "Typed synchronous and UniTask asynchronous events with VContainer registration.",
+  "unity": "2022.3",
+  "author": {
+    "name": "Kamer Yurdakull"
+  },
+  "samples": [
+    {
+      "displayName": "Basic Usage",
+      "description": "Register the bus with VContainer and publish typed events.",
+      "path": "Samples~/BasicUsage"
+    }
+  ]
+}
